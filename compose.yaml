@@ -1,0 +1,23 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+services:
+  devhabitapi:
+    image: devhabitapi
+    build:
+      context: .
+      dockerfile: DevHabit.Api/Dockerfile
+    ports:
+      - 3000:8080
+      - 3001:8081
+    environment:
+      # Seq
+      # - OTEL_EXPORTER_OTLP_ENDPOINT=http://devhabit.seq:5341/ingest/otlp
+      # - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+      # Aspire Dashboard
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://devhabit.aspire-dashboard:18889
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+  devhabit.aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:9.0
+    environment:
+      DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: true
+    ports:
+      - 18888:18888

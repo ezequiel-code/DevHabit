@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "vijayanand.slnx": {
+      "version": "0.3.0",
+      "commands": [
+        "slnx"
+      ],
+      "rollForward": false
+    }
+  }
+}
