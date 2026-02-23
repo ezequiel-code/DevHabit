@@ -485,3 +485,10 @@ $RECYCLE.BIN/
 # Visual Studio Code workspace file
 *.code-workspace
 .vscode/
+
+
+.containers/
+**/bin\\Debug/
+**/bin\\Release/
+**/obj\\Debug/
+**/obj\\Release/
